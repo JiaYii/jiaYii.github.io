@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>佳亦｜学设计的web开发-jiayi</title><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/images/favicon"><link type="text/css" rel="stylesheet" href="/css/index.css"><meta name="description" content="积累学习点滴"></head><body><header><div class="header"><a href="/" class="logo"><img src="http://occe2e0bo.bkt.clouddn.com/logo_jiayi_03.jpg"></a><ul class="nav"><li><a href="/">主页</a></li><li><a href="/about/">关于</a></li><li><a href="/css/">CSS</a></li></ul></div></header><section class="post-main"><div class="post_content"><p>上了<code>hexo</code>的贼船，不可避免就要用到<code>markdown</code>这种写作方法，也是因为<code>hexo</code>，宝宝才知道的<code>markdown</code>。（宝宝自己都被自己的无知吓到了）没关系，利用它写成简洁美观的页面，才是我想要的。<br><a id="more"></a></p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
+<li>行开头空4个空格，表示程序代码块</li>
+<li>行开头和行结束使用反引号(```)包裹也可以表示程序代码块（适用于多行）</li>
+<li>行尾加两个空格，可段内换行</li>
+<li>连续回车，可分段<h3 id="基本效果"><a href="#基本效果" class="headerlink" title="基本效果"></a>基本效果</h3></li>
+</ul>
+<p><strong>说明：</strong>基本效果展示均为上方为markdown语法(程序代码块)下方为解析后的效果展示(html在浏览器中展示)。</p>
+<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight vala"><table><tr><td class="code"><pre><div class="line"><span class="meta"># 我的家在东北</span></div><div class="line"><span class="meta">## 我的家在东北</span></div><div class="line">...</div><div class="line"><span class="meta">###### 我的家在东北</span></div></pre></td></tr></table></figure>
+<h1 id="我的家在东北"><a href="#我的家在东北" class="headerlink" title="我的家在东北"></a>我的家在东北</h1><h2 id="我的家在东北-1"><a href="#我的家在东北-1" class="headerlink" title="我的家在东北"></a>我的家在东北</h2><p>…</p>
+<h6 id="我的家在东北-2"><a href="#我的家在东北-2" class="headerlink" title="我的家在东北"></a>我的家在东北</h6><h4 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h4><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">style</span>=<span class="string">"width:2.8rem"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> </span></div><div class="line"><span class="attr">x</span>=<span class="string">"0px"</span> <span class="attr">y</span>=<span class="string">"0px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 130 130"</span> <span class="attr">overflow</span>=<span class="string">"visible"</span> <span class="attr">enable-background</span>=<span class="string">"new 0 0 130 130"</span> <span class="attr">id</span>=<span class="string">"progress"</span>&gt;  </div><div class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke</span>=<span class="string">"#ccc"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> <span class="attr">stroke-miterlimit</span>=<span class="string">"10"</span> <span class="attr">cx</span>=<span class="string">"64.8"</span> <span class="attr">cy</span>=<span class="string">"64.8"</span> <span class="attr">r</span>=<span class="string">"59.8"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"styled"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke</span>=<span class="string">"#2ecc71"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> <span class="attr">stroke-miterlimit</span>=<span class="string">"10"</span> <span class="attr">cx</span>=<span class="string">"64.8"</span> <span class="attr">cy</span>=<span class="string">"64.8"</span> <span class="attr">r</span>=<span class="string">"59.8"</span></span></div><div class="line">     <span class="attr">style</span>=<span class="string">"stroke-dashoffset: -93.9336; stroke-dasharray: 375.734;"</span>&gt;<span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="strong">**我的家在东北**</span></div><div class="line"><span class="strong">__我的家在东北__</span></div><div class="line"><span class="emphasis">*我的家在东北*</span></div></pre></td></tr></table></figure>
+<p>我的家在东北  //正常<br><strong>我的家在东北</strong> //强调<br><strong>我的家在东北</strong> //强调<br><em>我的家在东北</em>   //斜体</p>
+<h4 id="图片和链接"><a href="#图片和链接" class="headerlink" title="图片和链接"></a>图片和链接</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">[<span class="string">我的家在东北</span>](<span class="link">http://baidu.com</span>)  </div><div class="line">![<span class="string">我的家在东北</span>](<span class="link">//www.lgstatic.com/i/image/M00/4F/14/Cgp3O1etvvaAe408AAGADqFw_t0222.JPG</span>)</div></pre></td></tr></table></figure>
+<p><a href="http://baidu.com" target="_blank" rel="external">我的家在东北</a><br><img src="//www.lgstatic.com/i/image/M00/4F/14/Cgp3O1etvvaAe408AAGADqFw_t0222.JPG" alt="我的家在东北"> </p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&gt;我的家在东北</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我的家在东北</p>
+</blockquote>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><div class="line"><span class="section">***</span></div><div class="line">---</div><div class="line"><span class="section">-------</span></div><div class="line">===</div></pre></td></tr></table></figure>
+<hr>
+<hr>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight haml"><table><tr><td class="code"><pre><div class="line">+ css</div><div class="line">    -<span class="ruby"> less</span></div><div class="line">    -<span class="ruby"> sass</span></div><div class="line">+ js</div><div class="line">    -<span class="ruby"> node.js</span></div><div class="line">    -<span class="ruby"> vue.js</span></div></pre></td></tr></table></figure>
+<ul>
+<li>css<ul>
+<li>less</li>
+<li>sass</li>
+</ul>
+</li>
+<li>js<ul>
+<li>node.js</li>
+<li>vue.js</li>
+</ul>
+</li>
+</ul>
+</div></section><footer><div class="page_foot"><p>Power by Hexo theme by jiayi <a href="" title></p></div></footer></body></html>
