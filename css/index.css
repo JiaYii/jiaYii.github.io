@@ -92,7 +92,7 @@ body {
   font-size: 15px;
   line-height: 1.75em;
   color: #3A4145;
-  background-color: #f4f8f9;
+  /*background-color: #f4f8f9;*/
   -webkit-font-feature-settings: 'kern' 1;
   -moz-font-feature-settings: 'kern' 1;
   -o-font-feature-settings: 'kern' 1;
@@ -102,44 +102,206 @@ a {
   color: #888;
 }
 a:hover {
-  color: #00b4cc;
+  color: #2bb998;
 }
-header {
-  background-color: #ffffff;
-}
+.home_header,
 .header {
   position: relative;
-  max-width: 990px;
+  background-image: url(http://makaiqian.oss-cn-hangzhou.aliyuncs.com/image/2/1b/8112136841ac96798e36acd9a74fc.jpg);
+  background-size: cover;
+  width: 100%;
   margin: 0 auto;
-  padding: 15px 20px;
+  height: 600px;
 }
+.home_header:before,
 .header:before {
   content: "";
   display: table;
 }
+.home_header:after,
 .header:after {
   content: "";
   display: table;
   clear: both;
 }
-.logo {
-  display: inline-block;
-  max-width: 45px;
+.header {
+  height: 240px;
 }
-.logo img {
-  width: 100%;
-}
-.nav {
+.header_title {
   position: absolute;
   top: 50%;
-  right: 0;
+  left: 0;
   height: 30px;
+  width: 100%;
+  text-align: center;
   line-height: 30px;
   margin-top: -15px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 1px 0 15px #666;
+}
+.user_intro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  margin-left: -100px;
+  margin-top: -50px;
+}
+.user_intro .nav_icon-y,
+.user_intro .nav_icon-i {
+  background-color: #fff;
+  transition: all .25s ease;
+}
+.user_intro .user_img:hover .nav_icon-y,
+.user_intro .user_img:hover .nav_icon-i {
+  background-color: #2bb998;
+}
+.user_intro .user_img:hover .nav_icon-y:before {
+  animation: swing_l 1.2s infinite;
+}
+.user_intro .user_img:hover .nav_icon-y:after {
+  animation: swing_r 1.2s infinite;
+}
+.user_self {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+.nav {
+  /*icon yi 样式*/
+}
+.nav_container {
+  position: fixed;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.25);
+}
+.nav_bar {
+  max-width: 990px;
+  margin: 0 auto;
+  height: 100%;
+}
+.nav_page {
+  float: right;
+  height: 100%;
+  line-height: 80px;
+  margin-right: .4rem;
+}
+.nav_page:before {
+  content: "";
+  display: table;
+}
+.nav_page:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.nav_page li {
+  width: .8rem;
+  float: left;
+  text-align: center;
+  font-size: 14px;
+}
+.nav_page li a {
+  color: #666;
+  transition: all .25s ease;
+}
+.nav_page li a:hover {
+  color: #2bb998;
+}
+.nav_icon {
+  line-height: 88px;
+  width: 30px;
+}
+.nav_icon-y,
+.nav_icon-i {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background-color: #2bb998;
+  border-radius: 6px;
+}
+.nav_icon-y {
+  margin-right: 8px;
+}
+.nav_icon-y:before,
+.nav_icon-y:after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  background-color: inherit;
+  border-radius: 6px;
+  top: -11px;
+}
+.nav_icon-y:before {
+  right: 0;
+  transform: rotateZ(30deg);
+  transform-origin: center 12px;
+}
+.nav_icon-y:after {
+  left: 0;
+  transform: rotateZ(-30deg);
+  transform-origin: center 12px;
+}
+.nav_icon-i:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  background-color: inherit;
+  border-radius: 50%;
+}
+.nav_btn {
+  position: absolute;
+  display: none;
+  top: 20px;
+  right: 20px;
+}
+.nav_txt {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  color: #fff;
 }
 .nav li {
   padding: 0 15px;
   float: left;
+}
+@keyframes swing_l {
+  0% {
+    transform: rotateZ(-30deg);
+  }
+  50% {
+    width: 6px;
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(30deg);
+  }
+}
+@keyframes swing_r {
+  0% {
+    transform: rotateZ(30deg);
+  }
+  50% {
+    width: 6px;
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(-30deg);
+  }
 }
 .post-main {
   max-width: 990px;
@@ -163,13 +325,15 @@ header {
   max-width: 280px;
   background-color: #fff;
   margin-left: 730px;
+  /*box-shadow: 0 0 2px 2px #ddd;*/
 }
 .post_item {
   max-width: 100%;
   background-color: #fff;
   border-bottom: 3px solid transparent;
   padding: 30px 20px;
-  border-bottom: 2px solid #f4f8f9;
+  border-bottom: 1px solid;
+  border-color: rgba(43, 185, 152, 0.2);
 }
 .post_item-title a {
   font-size: 20px;
@@ -177,7 +341,7 @@ header {
   font-weight: bold;
 }
 .post_item-title a:hover {
-  color: #00b4cc;
+  color: #2bb998;
 }
 .post_item-time {
   font-size: 12px;
@@ -199,15 +363,42 @@ header {
   margin-right: 3px;
 }
 .post_item-tags a {
+  display: inline-block;
   background-color: #f1f1f1;
-  padding: 1px 3px;
-  color: #00b4cc;
+  padding: 1px 8px;
+  margin-right: 4px;
+  color: #2bb998;
+}
+.tags_title {
+  margin-bottom: 10px;
+}
+.tags_title a {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 1px 8px;
+  border-radius: 20px;
+  background-color: #2bb998;
+  color: #fff;
+}
+.site_right {
+  padding: 10px;
+}
+.site_tags h3 {
+  font-weight: bold;
+  margin: 10px 0;
+}
+.site_tags a {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  border: 1px solid #999;
+  padding: 1px 8px;
+  border-radius: 20px;
 }
 .page_foot {
   background-color: #353535;
   font-size: 14px;
   text-align: center;
-  padding: 50px 0;
+  padding: 25px 0;
   color: #686868;
 }
 .post_content {
@@ -217,7 +408,6 @@ header {
   color: #3e3e3e;
   max-width: 800px;
   margin: 0 auto;
-  box-shadow: 0 0 3px 3px #ddd;
 }
 .post_content .post_item-title {
   font-size: 20px;
@@ -240,8 +430,8 @@ header {
   font-weight: 700;
 }
 .post_content h3 {
-  font-size: 1.2rem;
-  margin-top: 1.3rem;
+  font-size: .16rem;
+  margin-top: .15rem;
 }
 .post_content strong,
 .post_content b {
@@ -249,8 +439,8 @@ header {
 }
 .post_content blockquote {
   box-sizing: border-box;
-  margin-bottom: 1.75rem 0 1.75rem .2em;
-  padding-left: 1.75rem;
+  margin-bottom: .75rem 0 .75rem .2em;
+  padding-left: .15rem;
   border-left: #e5e5e5 .4em solid;
 }
 .post_content img {
