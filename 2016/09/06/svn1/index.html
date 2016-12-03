@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>svn使用总结（便查阅）</title><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/img/yi.ico"><link type="text/css" rel="stylesheet" href="/css/index.css"><meta name="description" content="积累学习点滴"><script>(function (doc, win) {
+  var docEl = doc.documentElement,
+  resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+  recalc = function () {
+    var clientWidth = docEl.clientWidth > 750 ? 750 : docEl.clientWidth;
+    if (!clientWidth) return;
+    docEl.style.fontSize = 100 * (clientWidth/750 ) + 'px';
+  }
+  recalc();
+  window.addEventListener('resize',recalc, false);
+})(document, window);</script></head><body><header><div id="header" class="header"><div class="header_title">svn使用总结（便查阅）</div></div><a id="nav_btn" href="javascript:void(0);" class="nav_btn"><span class="nav_icon"></span><span class="nav_txt">导航</span></a><div id="nav_container" class="nav_container"><nav id="nav_bar" class="nav_bar"><ul class="nav_page"><li><a href="/#Home">Home</a></li><li><a href="/about/">About</a></li><li><a href="/tags/">Tags</a></li><li class="nav_icon"><span class="nav_icon-y"></span><span class="nav_icon-i"></span></li></ul></nav></div></header><section class="post-main"><div class="post_content"><h1 class="post_item-title">svn使用总结（便查阅）</h1><time class="post_item-time">2016/9/6</time><p>不管什么职业，熟悉工作所需要使用的工具是非常非常必要的。一来可以节省大量的精力，将时间放在核心业务上，二来对工具对熟练运用也可以减少不必要的麻烦同时也可以拓宽思路。本文主要记录svn客户端在mac命令行上使用的一些要点，方便记忆和查看。<br><a id="more"></a></p>
+<h3 id="svn简介"><a href="#svn简介" class="headerlink" title="svn简介"></a>svn简介</h3><p>svn全称subversion,是一款<code>集中式</code>版本控制<code>源代码</code>管理`工具。svn分为服务器端和客户端，服务器端也就是版本库的所在地，接收客户端推送过来的代码生成新的版本，客户端相当于我们工作的的电脑从服务器端更新最新的代码，修改再推送给服务器。由于Mac本身就装有svn服务器端和客户端软件(可以在终端输入svn –version，查看版本号)，不需要安装就可以使用svn了。</p>
+<h3 id="行业术语"><a href="#行业术语" class="headerlink" title="行业术语"></a>行业术语</h3><ul>
+<li>文件库（Repository）:repository是任何版本控制工具的核心，是存储开发者所有文件(包括当前和历史文件)的地方。</li>
+<li>主分支（trunk）：开发者日常开发进行的地方。</li>
+<li>分支（branches）：相当从trunk拷贝一份文件，独立开发。</li>
+<li>标签（tags）：目录一般是只读的，这里存储阶段性的发布版本，只是作为一个里程碑的版本进行存档</li>
+<li>工作版本（Working copy）：从服务器Respository更新到客户端的文件，开发人员工作对象。<h3 id="svn基本命令"><a href="#svn基本命令" class="headerlink" title="svn基本命令"></a>svn基本命令</h3><h3 id="svn重要命令"><a href="#svn重要命令" class="headerlink" title="svn重要命令"></a>svn重要命令</h3></li>
+</ul>
+<ul class="post_item-tm"><li class="post_item-tags"><span>标签:</span><a href="/tags/svn/" style="font-size: 10px;">svn</a></li><li><a href="/index.html" title="首页" class="post_item-more">首页...</a></li></ul></div></section><footer><div class="page_foot"><p>Power by Hexo theme by jiayi <a href="" title></p></div></footer></body></html><script defer="defer" src="/js/smoothscroll.js"></script><script defer="defer" src="/js/index.js"></script>

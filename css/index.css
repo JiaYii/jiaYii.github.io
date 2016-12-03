@@ -1,3 +1,10 @@
+@font-face {
+  font-family: themify;
+  src: url(../fonts/themify.eot?-fvbane);
+  src: url(../fonts/themify.eot?#iefix-fvbane) format('embedded-opentype'), url(../fonts/themify.woff?-fvbane) format('woff'), url(../fonts/themify.ttf?-fvbane) format('truetype'), url(../fonts/themify.svg?-fvbane#themify) format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
 body,
 header,
 footer,
@@ -26,6 +33,7 @@ td,
 figure {
   margin: 0;
   padding: 0;
+  text-rendering: geometricPrecision;
 }
 table {
   border-collapse: collapse;
@@ -72,8 +80,22 @@ abbr,
 acronym {
   border: 0;
 }
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
 body {
-  background-color: #f9f9f4;
+  font-family: 'Helvetica Neue', '\5FAE\8F6F\96C5\9ED1', '\9ED1\4F53', sans-serif;
+  letter-spacing: .01rem;
+  font-size: 15px;
+  line-height: 1.75em;
+  color: #3A4145;
+  background-color: #f4f8f9;
+  -webkit-font-feature-settings: 'kern' 1;
+  -moz-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
 }
 a {
   text-decoration: none;
@@ -83,13 +105,13 @@ a:hover {
   color: #00b4cc;
 }
 header {
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .header {
   position: relative;
   max-width: 990px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 15px 20px;
 }
 .header:before {
   content: "";
@@ -102,7 +124,7 @@ header {
 }
 .logo {
   display: inline-block;
-  max-width: 60px;
+  max-width: 45px;
 }
 .logo img {
   width: 100%;
@@ -121,49 +143,65 @@ header {
 }
 .post-main {
   max-width: 990px;
-  margin: 0 auto;
-  min-height: 800px;
+  margin: 40px auto;
+}
+.post-main:before {
+  content: "";
+  display: table;
+}
+.post-main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.post_container {
+  float: left;
+  max-width: 710px;
+}
+.site_right {
+  min-height: 500px;
+  max-width: 280px;
+  background-color: #fff;
+  margin-left: 730px;
 }
 .post_item {
-  max-width: 750px;
+  max-width: 100%;
   background-color: #fff;
-  margin: 40px 0;
   border-bottom: 3px solid transparent;
-}
-.post_item:hover {
-  border-bottom: 3px solid #00b4cc;
-}
-.post_item-img {
-  position: relative;
-  width: 100%;
-  min-height: 100px;
-  overflow: hidden;
-}
-.post_item-img img {
-  width: 100%;
-}
-.post_item-time {
-  position: absolute;
-  top: 10px;
-  right: 0;
-  padding: 12px 8px;
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
-}
-.post_item-title {
-  padding: 20px;
+  padding: 30px 20px;
+  border-bottom: 2px solid #f4f8f9;
 }
 .post_item-title a {
-  font-size: 15px;
-  color: #666;
+  font-size: 20px;
+  color: #555;
+  font-weight: bold;
 }
 .post_item-title a:hover {
   color: #00b4cc;
 }
-.post_item-excert {
-  padding: 20px 20px 40px 20px;
-  color: #888;
+.post_item-time {
+  font-size: 12px;
+  color: #b2b2b2;
+}
+.post_item-excerpt {
+  margin: 6px 0;
+}
+.post_item-excerpt p {
+  color: #3A4145;
+}
+.post_item-tm {
+  display: flex;
+  justify-content: space-between;
+}
+.post_item-tags span {
+  font-size: 12px;
+  color: #9EABB3;
+  margin-right: 3px;
+}
+.post_item-tags a {
+  background-color: #f1f1f1;
+  padding: 1px 3px;
+  color: #00b4cc;
 }
 .page_foot {
   background-color: #353535;
@@ -177,7 +215,13 @@ header {
   background-color: #fff;
   padding: 30px 30px 40px;
   color: #3e3e3e;
-  max-width: 750px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 3px 3px #ddd;
+}
+.post_content .post_item-title {
+  font-size: 20px;
+  color: #444;
 }
 .post_content p {
   margin: 20px 0;
@@ -185,18 +229,50 @@ header {
 .post_content ul {
   margin: 20px 0;
 }
+.post_content h1,
+.post_content h2,
+.post_content h3,
+.post_content h4,
+.post_content h5,
+.post_content h6 {
+  color: #555;
+  line-height: 1.15em;
+  font-weight: 700;
+}
 .post_content h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-top: 1.3rem;
 }
 .post_content strong,
 .post_content b {
   font-weight: bold;
 }
+.post_content blockquote {
+  box-sizing: border-box;
+  margin-bottom: 1.75rem 0 1.75rem .2em;
+  padding-left: 1.75rem;
+  border-left: #e5e5e5 .4em solid;
+}
+.post_content img {
+  max-width: 100%;
+}
 .post_content .highlight {
   background-color: #f7f7f7;
   padding: 10px;
-  color: #00b4cc;
   margin-top: 20px;
   overflow: auto;
+}
+.post_content .code {
+  line-height: 22px;
+  padding: 4px;
+  color: #2c4d50;
+}
+.post_content .html .name {
+  font-weight: bold;
+}
+.post_content .html .attr {
+  color: #333;
+}
+.post_content .html .string {
+  color: #e67e28;
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>javascript基础学习之对象</title><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/img/yi.ico"><link type="text/css" rel="stylesheet" href="/css/index.css"><meta name="description" content="积累学习点滴"><script>(function (doc, win) {
+  var docEl = doc.documentElement,
+  resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+  recalc = function () {
+    var clientWidth = docEl.clientWidth > 750 ? 750 : docEl.clientWidth;
+    if (!clientWidth) return;
+    docEl.style.fontSize = 100 * (clientWidth/750 ) + 'px';
+  }
+  recalc();
+  window.addEventListener('resize',recalc, false);
+})(document, window);</script></head><body><header><div id="header" class="header"><div class="header_title">javascript基础学习之对象</div></div><a id="nav_btn" href="javascript:void(0);" class="nav_btn"><span class="nav_icon"></span><span class="nav_txt">导航</span></a><div id="nav_container" class="nav_container"><nav id="nav_bar" class="nav_bar"><ul class="nav_page"><li><a href="/#Home">Home</a></li><li><a href="/about/">About</a></li><li><a href="/tags/">Tags</a></li><li class="nav_icon"><span class="nav_icon-y"></span><span class="nav_icon-i"></span></li></ul></nav></div></header><section class="post-main"><div class="post_content"><h1 class="post_item-title">javascript基础学习之对象</h1><time class="post_item-time">2016/6/17</time><p>最近学习vue,看到响应式原理的时候，发现Object.defineProperty()这个api都不知道，遂决定好好复习下，并决定以javascript对象为开始，重温Array/Function等javascript类<br><a id="more"></a></p>
+<h1 id="javascript基础学习之对象"><a href="#javascript基础学习之对象" class="headerlink" title="javascript基础学习之对象"></a>javascript基础学习之对象</h1><blockquote>
+<p>最近学习vue,看到响应式原理的时候，发现Object.defineProperty()这个api都不知道，遂决定好好复习下，并决定以javascript对象为开始，重温Array/Function等javascript类。<br>好记性不如烂笔头，开始吧。</p>
+</blockquote>
+<h2 id="Object定义"><a href="#Object定义" class="headerlink" title="Object定义"></a>Object定义</h2><blockquote>
+<p>有个基本概念还是很重要的（定义基本来自javascript权威指南） </p>
+</blockquote>
+<p>javascript的基本数据类型，它将很多值聚合在一起，很多值可以看作属性的无序集合。属性包括名字和值，属性名是包含空字符串在内的任意字符串，属性值可以是任意javascript值或者（es5）是一个getter／setter函数。属性还包括值／可写／可枚举／可配置的特性。</p>
+<h2 id="对象的属性（自我理解为特性）"><a href="#对象的属性（自我理解为特性）" class="headerlink" title="对象的属性（自我理解为特性）"></a>对象的属性（自我理解为特性）</h2><blockquote>
+<p>每一个对象都有与之相关的原型（prototype）、类（class）、和可扩展性（extensible）</p>
+</blockquote>
+<p><strong>1.原型属性：</strong>原型属性是用来继承属性的</p>
+<p><strong>2.类：</strong>是一个字符串，表示对象的类型信息。</p>
+<p><strong>3.可扩展性：</strong>可扩展性表示是否可以给对象添加新属性，所有内置对象和自定义对象都是显式可扩展的，宿主对象可扩展性是由javascript引擎定义的。</p>
+<h2 id="对象属性特性"><a href="#对象属性特性" class="headerlink" title="对象属性特性"></a>对象属性特性</h2><blockquote>
+<p> 对象属性除了名字和值(es5中setter,getter)之外，属性还包括一些可写/可枚举/可配置等特性。这些属性特性的集合在es5中叫“属性描述符对象(property descriptor)”。</p>
+</blockquote>
+<p>描述符对象包括：</p>
+<ul>
+<li>值<ul>
+<li>value： (属性值，可以是任意javascript值)</li>
+<li>getter： (es5中可以用getter方法代替值，目标属性被访问就会调此方法并返回运算结果)</li>
+</ul>
+</li>
+<li>可写性<ul>
+<li>writable： (布尔值，表明是否可以重写该属性的值)</li>
+<li>setter： (是否可写或es5中setter)</li>
+</ul>
+</li>
+<li>可枚举 <ul>
+<li>enumerable： (布尔值：是否可以用for／in 或 Object.keys中列举出来)</li>
+</ul>
+</li>
+<li>可配置<ul>
+<li>configurable： (布尔值：是否可以删除或修改属性特性)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-通过Object-getOwnPropertyDescriptor-可以获得某个对象特定属性的描述符："><a href="#1-通过Object-getOwnPropertyDescriptor-可以获得某个对象特定属性的描述符：" class="headerlink" title="1.通过Object.getOwnPropertyDescriptor()可以获得某个对象特定属性的描述符："></a>1.通过Object.getOwnPropertyDescriptor()可以获得某个对象特定属性的描述符：</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;x: <span class="number">2</span>&#125;, <span class="string">'x'</span>)  </div><div class="line"><span class="comment">// =&gt; &#123;configurable:true, enumerable: true ,value: 2, writable: true&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="2-getter和setter"><a href="#2-getter和setter" class="headerlink" title="2.getter和setter"></a>2.getter和setter</h3><p>对象属性是由名字（key）/值（value） 和 一组特性（属性描述符对象）构成。在es5中属性值可以由一个或两个方法（getter/setter）代替。getter和setter定义的属性叫存取器属性。</p>
+<p>存取器属性运行机制</p>
+<ul>
+<li>查询(value) 查询时javascript调用getter方法（无参数）返回值就是getter方法表达式的值。</li>
+<li>设置(writable) 设置时javascript调用setter方法，将赋值表达式右侧当做参数传人setter。</li>
+</ul>
+<p>存取器属性（serialnum.next）直接量写法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">serialnum = &#123;</div><div class="line">    $n: <span class="number">1</span>,</div><div class="line">    get next() &#123; <span class="keyword">return</span> ++<span class="keyword">this</span>.$n &#125;,</div><div class="line">    set next(n) &#123;</div><div class="line">      <span class="keyword">this</span>.$n = <span class="keyword">this</span>.$n*n</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">serialnum.$n <span class="comment">// =&gt; 2 调用get方法查询值</span></div><div class="line">serialnum.next = <span class="number">2</span> <span class="comment">// 会调用set方法设置值</span></div></pre></td></tr></table></figure>
+<h3 id="3-通过Object-defineProperty-设置特性"><a href="#3-通过Object-defineProperty-设置特性" class="headerlink" title="3.通过Object.defineProperty()设置特性"></a>3.通过Object.defineProperty()设置特性</h3><ul>
+<li>语法<br>  － object.defineProperty(obj, prop, descriptor)</li>
+<li>参数<ul>
+<li>obj 目标对象</li>
+<li>prop 需要定义的属性或方法的名字</li>
+<li>descriptor 目标属性所拥有的特性</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'x'</span>, &#123;</div><div class="line">  value: <span class="number">2</span>,</div><div class="line">  writable: <span class="literal">true</span>,</div><div class="line">  enumerable: <span class="literal">false</span>,</div><div class="line">  configurable: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(o.x) <span class="comment">// =&gt; 2</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(o)) <span class="comment">// =&gt; []</span></div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'x'</span>, &#123;writable: <span class="literal">false</span>&#125;)</div><div class="line">o.x = <span class="number">8</span> <span class="comment">// =&gt; 操作失败但不报错，在严格模式下抛出类型异常错误</span></div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">'x'</span>, &#123;value: <span class="number">8</span>&#125;) </div><div class="line"><span class="built_in">console</span>.log(o.x) <span class="comment">// =&gt; 8 依然可配置，可通过这种方式修改</span></div></pre></td></tr></table></figure>
+<h3 id="4-”setter-getter”与vue-js"><a href="#4-”setter-getter”与vue-js" class="headerlink" title="4.”setter/getter”与vue.js"></a>4.”setter/getter”与vue.js</h3><p>vue.js的官方文档这样描述：</p>
+<blockquote>
+<p>把一个普通 Javascript 对象传给 Vue 实例来作为它的 data 选项，Vue 将遍历它的属性，用 Object.defineProperty 将它们转为 getter/setter。这是 ES5 的特性，不能打补丁实现，这便是为什么 Vue 不支持 IE8 以及更低版本浏览器的原因。</p>
+</blockquote>
+<p>例子（可见object.js）</p>
+<p>当改变input标签的value值，span标签的值也会同步改变。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"texing_input"</span> <span class="attr">placeholder</span>=<span class="string">"请输入"</span> <span class="attr">value</span>=<span class="string">"getter和setter测试"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"texing_output"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> texing_input = <span class="built_in">document</span>.getElementById(<span class="string">'texing_input'</span>),</div><div class="line">    texing_output = <span class="built_in">document</span>.getElementById(<span class="string">'texing_output'</span>)</div><div class="line">serialnum = &#123;</div><div class="line">  $n: <span class="number">2</span>,</div><div class="line">  get next() &#123; <span class="keyword">return</span> ++<span class="keyword">this</span>.$n &#125;,</div><div class="line">  set next(n) &#123;</div><div class="line">    texing_output.innerHTML = n</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">serialnum.next = texing_input.value;</div><div class="line">texing_input.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  serialnum.next = texing_input.value</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><strong>注:</strong>在<code>vue</code>中只有这些被代理的属性是响应的。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。就是因为实例创建之后新添加的属性<code>vue</code>没有进行重置。</p>
+<h2 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h2><h3 id="1-序列化对象"><a href="#1-序列化对象" class="headerlink" title="1. 序列化对象"></a>1. 序列化对象</h3><blockquote>
+<p>指将对象的状态转换为字符串（JSON.stringify()）或者将字符串还原为对象（JSON.parse()），</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;x: <span class="number">2</span>, y: &#123;x1: <span class="number">5</span>, y1: <span class="number">8</span>&#125;&#125; </div><div class="line"><span class="keyword">var</span> s = <span class="built_in">JSON</span>.stringify(o) <span class="comment">// =&gt; s是字符串&#123;"x":2,"y":&#123;"x1":5,"y1":8&#125;&#125;</span></div><div class="line"><span class="keyword">var</span> p = <span class="built_in">JSON</span>.parse(s)   <span class="comment">// =&gt; p是o的深度拷贝</span></div></pre></td></tr></table></figure>
+<ul class="post_item-tm"><li class="post_item-tags"><span>标签:</span><a href="/tags/js基础/" style="font-size: 10px;">js基础</a></li><li><a href="/index.html" title="首页" class="post_item-more">首页...</a></li></ul></div></section><footer><div class="page_foot"><p>Power by Hexo theme by jiayi <a href="" title></p></div></footer></body></html><script defer="defer" src="/js/smoothscroll.js"></script><script defer="defer" src="/js/index.js"></script>
