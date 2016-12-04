@@ -1,3 +1,5 @@
+/*公共样式*/
+/*标签页样式*/
 @font-face {
   font-family: themify;
   src: url(../fonts/themify.eot?-fvbane);
@@ -465,4 +467,33 @@ a:hover {
 }
 .post_content .html .string {
   color: #e67e28;
+}
+.tags_content {
+  max-width: 8rem;
+}
+.tags_title-sub {
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: .2rem;
+}
+.tags_list {
+  width: 100%;
+}
+.tags_item {
+  padding: .15rem .2rem;
+  border-bottom: 1px solid rgba(43, 185, 152, 0.2);
+}
+.tags_item-time {
+  display: inline-block;
+  padding: 0 .2rem 0 .2rem;
+  min-width: 1.6rem;
+  text-align: right;
+  border-right: 1px solid #f1f1f1;
+}
+.tags_item-title {
+  padding-left: .2rem;
+  color: #333;
+}
+.tags_item-title:hover {
+  color: #2bb998;
 }
