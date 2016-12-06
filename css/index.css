@@ -371,6 +371,11 @@ a:hover {
   margin-right: 4px;
   color: #2bb998;
 }
+@media (max-width: 414px) {
+  .site_right {
+    display: none;
+  }
+}
 .tags_title {
   margin-bottom: 10px;
 }
